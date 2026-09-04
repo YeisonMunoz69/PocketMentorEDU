@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalización - Pocket Mentor EDU</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="layout">
+    <script>
+        // Inmediatamente cargar el tema antes de renderizar para evitar flash FOUC
+        const _savedTheme = localStorage.getItem('pme_theme') || 'purple';
+        const _savedBg = localStorage.getItem('pme_bg') || 'default';
+        document.body.className = `layout theme-${_savedTheme} bg-${_savedBg}`;
+    </script>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar neu-convex" style="border-radius: 0 30px 30px 0; margin-right: 15px;">
+        <div class="brand">
+            <div class="btn-square neu-concave icon" style="color: var(--accent-color); width: 40px; height: 40px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a3 3 0 0 1 3 3v2h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v2a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h1V10a3 3 0 0 1 3-3h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2zm-3 10a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            </div>
+            <h1>Pocket Mentor<span class="subtitle">EDU offline</span></h1>
+        </div>
+        
+        <nav class="nav-menu" style="margin-top: 20px;">
+            <a href="/" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+                <span>Tutor AI</span>
+            </a>
+            <a href="/dashboard" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+                <span>Dashboard</span>
+            </a>
+            <a href="/theme" class="nav-item active">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg></div>
+                <span>Personalización</span>
+            </a>
+            <a href="/knowledge" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
+                <span>Conocimientos</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                <span>Ajustes Técnicos</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="stats-card neu-concave" style="background: transparent; border: 1px dashed var(--text-placeholder);">
+                 <div class="stats-row" style="color: #34d399; justify-content: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>Sistema OK</span>
+                 </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="btn-circle neu-convex icon" id="btn-toggle-sidebar" style="width: 45px; height: 45px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <h2 class="page-title">Personalización del Tema Visual</h2>
+            </div>
+        </header>
+
+        <div class="settings-layout">
+            
+            <!-- Selector de Tema Visual -->
+            <section class="settings-card neu-convex">
+                <div class="card-header">
+                    <div class="btn-circle neu-concave icon" style="color: var(--accent-color);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Color de Acento Principal</h3>
+                        <p class="card-subtitle">Personaliza tu entorno de aprendizaje Soft UI con tu color favorito.</p>
+                    </div>
+                </div>
+                <div class="theme-selector" id="theme-selector">
+                    <div class="theme-swatch swatch-purple active" data-theme="purple" title="Púrpura Suave"></div>
+                    <div class="theme-swatch swatch-sky" data-theme="sky" title="Turquesa Claro"></div>
+                    <div class="theme-swatch swatch-amber" data-theme="amber" title="Ámbar"></div>
+                    <div class="theme-swatch swatch-pink" data-theme="pink" title="Rosa Neón"></div>
+                    <div class="theme-swatch swatch-indigo" data-theme="indigo" title="Índigo"></div>
+                    <div class="theme-swatch swatch-emerald" data-theme="emerald" title="Esmeralda"></div>
+                    <div class="theme-swatch swatch-crimson" data-theme="crimson" title="Carmesí"></div>
+                    <div class="theme-swatch swatch-teal" data-theme="teal" title="Verde Azulado"></div>
+                </div>
+            </section>
+
+            <!-- Selector de Tema de Fondo -->
+            <section class="settings-card neu-convex">
+                <div class="card-header">
+                    <div class="btn-circle neu-concave icon" style="color: var(--text-dark);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Color de Fondo General</h3>
+                        <p class="card-subtitle">Ajusta la luminosidad del entorno Neumórfico desde blanco puro hasta negro profundo.</p>
+                    </div>
+                </div>
+                <div class="theme-selector" id="bg-selector">
+                    <div class="bg-swatch bg-default active" data-bg="default" title="Gris Base Suave"></div>
+                    <div class="bg-swatch bg-white" data-bg="white" title="Blanco Puro"></div>
+                    <div class="bg-swatch bg-darker" data-bg="darker" title="Gris Oscurecido"></div>
+                    <div class="bg-swatch bg-mocha" data-bg="mocha" title="Moca Pastel"></div>
+                    <div class="bg-swatch bg-sand" data-bg="sand" title="Arena Claro"></div>
+                    <div class="bg-swatch bg-slate" data-bg="slate" title="Pizarra (Gris Azul)"></div>
+                    <div class="bg-swatch bg-charcoal" data-bg="charcoal" title="Carbón (Oscuro)"></div>
+                    <div class="bg-swatch bg-night" data-bg="night" title="Noche Profunda"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toasts Container -->
+    <div id="toast-container" class="toast-container neu-convex">
+        <svg class="toast-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span class="toast-message" id="toast-msg-text">Tema Actualizado</span>
+    </div>
+    
+    <script src="/static/settings.js"></script>
+</body>
+</html>

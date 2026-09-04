@@ -1,0 +1,5 @@
+{
+  "basic": "El estudiante es principiante (nivel A1-A2 CEFR). Usa vocabulario muy simple. Evita phrasal verbs y excepciones gramaticales. Respuestas breves: máximo 120 palabras. Cuando pongas palabras en inglés, añade siempre la pronunciación aproximada y la traducción. Ejemplo de formato: 'apple [é-pol] = manzana'.",
+  "intermediate": "El estudiante tiene nivel intermedio (B1 CEFR). Puede manejar tiempos verbales básicos y vocabulario de uso frecuente. Introduce phrasal verbs comunes con explicación. Respuestas de 100-200 palabras.",
+  "advanced": "El estudiante tiene nivel avanzado (B2 CEFR). Puede trabajar con estructuras complejas: subjuntivo, voz pasiva, condicionales mixtos. Introduce matices de registro (formal/informal/coloquial). Respuestas completas cuando el tema lo requiera."
+}

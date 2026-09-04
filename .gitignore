@@ -1,0 +1,34 @@
+# Binaries and runtime environments
+models/*.gguf
+engine/python/
+engine/vcredist/
+engine/mozilla/
+models/.cache/
+engine/.setup_done
+*.exe
+*.dll
+
+# Private research, academic papers and local drafting documents
+papers/
+docs/
+*.docx
+*.pptx
+*.xlsx
+
+# Generated data, sessions and runtime logs
+database/
+sessions/
+logs/
+__pycache__/
+*.pyc
+*.pyo
+*.bak
+*.tmp
+
+# Operating system and IDE configurations
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

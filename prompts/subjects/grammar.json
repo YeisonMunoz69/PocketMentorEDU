@@ -1,0 +1,7 @@
+{
+  "name": "Grammar Coach",
+  "area": "gramática inglesa",
+  "style": "estructurado, con contraste claro entre forma correcta e incorrecta",
+  "technique": "presenta la regla gramatical, muestra un ejemplo correcto y uno incorrecto, luego pide al estudiante que construya su propia oración",
+  "verify_q": "¿Puedes crear una oración original usando esta regla gramatical?"
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Docente - Pocket Mentor EDU</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Optional external chart library if offline strictly allowed later replace with local or simple CSS charts -->
+</head>
+<body class="layout">
+    <script>
+        const _savedTheme = localStorage.getItem('pme_theme') || 'purple';
+        const _savedBg = localStorage.getItem('pme_bg') || 'default';
+        document.body.className = `layout theme-${_savedTheme} bg-${_savedBg}`;
+        
+        // Simple config for dynamic colors in chart
+        window.themeColors = {
+            'purple': '#9b84ee',
+            'mint': '#34d399',
+            'coral': '#fb7185',
+            'sky': '#38bdf8',
+            'amber': '#fbbf24',
+            'rose': '#f43f5e'
+        };
+        window.activeColor = window.themeColors[_savedTheme] || '#9b84ee';
+    </script>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar neu-convex" style="border-radius: 0 30px 30px 0; margin-right: 15px;">
+        <div class="brand">
+            <div class="btn-square neu-concave icon" style="color: var(--accent-color); width: 40px; height: 40px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a3 3 0 0 1 3 3v2h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1v2a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h1V10a3 3 0 0 1 3-3h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2zm-3 10a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            </div>
+            <h1>Pocket Mentor<span class="subtitle">EDU offline</span></h1>
+        </div>
+        
+        <nav class="nav-menu" style="margin-top: 20px;">
+            <a href="/" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+                <span>Tutor AI</span>
+            </a>
+            <a href="/dashboard" class="nav-item active">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+                <span>Dashboard</span>
+            </a>
+            <a href="/theme" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg></div>
+                <span>Personalización</span>
+            </a>
+            <a href="/knowledge" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
+                <span>Conocimientos</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                <span>Ajustes Técnicos</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="btn-text neu-convex" onclick="loadDashboard()" style="width: 100%; gap: 10px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                Refrescar Datos
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <header class="topbar">
+            <h2 class="page-title">Dashboard Docente</h2>
+        </header>
+
+        <div class="settings-layout" style="padding-top: 10px;">
+            
+            <!-- Resumen Rapido -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div class="stats-card neu-convex" style="align-items: center; text-align: center;">
+                    <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Total Sesiones</span>
+                    <span style="font-size: 36px; font-weight: 700; color: var(--accent-color); font-family: var(--font-mono);" id="stat-sessions">0</span>
+                </div>
+                <div class="stats-card neu-convex" style="align-items: center; text-align: center;">
+                    <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Tutor Quality Avg</span>
+                    <span style="font-size: 36px; font-weight: 700; color: #34d399; font-family: var(--font-mono);" id="stat-quality">0%</span>
+                </div>
+                <div class="stats-card neu-convex" style="align-items: center; text-align: center;">
+                    <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Promedio Turnos</span>
+                    <span style="font-size: 36px; font-weight: 700; color: var(--text-dark); font-family: var(--font-mono);" id="stat-turns">0</span>
+                </div>
+            </div>
+
+            <!-- Tabla Neumórfica -->
+            <section class="settings-card neu-convex" style="padding: 20px;">
+                <div class="card-header" style="margin-bottom: 20px; padding: 0 10px;">
+                    <div class="btn-circle neu-concave icon" style="color: var(--accent-color); width: 40px; height: 40px;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h8"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="card-title" style="font-size: 18px;">Historial de Desempeño Visual</h3>
+                    </div>
+                </div>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 600px;">
+                        <thead>
+                            <tr style="border-bottom: 2px dashed var(--shadow-dark);">
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Estudiante</th>
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Fecha</th>
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Tema</th>
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Nivel</th>
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">IA Quality</th>
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Turnos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Filas dinámicas -->
+                            <tr><td colspan="6" style="text-align:center; padding: 30px; color: var(--text-placeholder);">Cargando registros...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toasts Container -->
+    <div id="toast-container" class="toast-container neu-convex">
+        <svg class="toast-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span class="toast-message" id="toast-msg-text">Actualizado</span>
+    </div>
+    
+    <script>
+        async function loadDashboard() {
+            try {
+                const res = await fetch('/api/dashboard/history');
+                const data = await res.json();
+                const sessions = data.sessions || [];
+                
+                document.getElementById('stat-sessions').innerText = sessions.length;
+                
+                let totQ = 0;
+                let totT = 0;
+                let validQ = 0;
+                
+                const tbody = document.getElementById('table-body');
+                tbody.innerHTML = '';
+                
+                if (sessions.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding: 30px; color: var(--text-placeholder);">No hay sesiones registradas en disco.</td></tr>';
+                    return;
+                }
+                
+                sessions.forEach(s => {
+                    totT += s.turns_count;
+                    if (s.avg_score >= 0) {
+                        totQ += s.avg_score;
+                        validQ++;
+                    }
+                    
+                    const tr = document.createElement('tr');
+                    tr.style.borderBottom = '1px dashed var(--shadow-dark)';
+                    
+                    // Simple Quality visual badge
+                    let badgeColor = "var(--text-muted)";
+                    if (s.avg_score > 0.6) badgeColor = "#34d399";
+                    else if (s.avg_score > 0.3) badgeColor = "#fbbf24";
+                    else if (s.avg_score > 0) badgeColor = "#fb7185";
+                    
+                    const scLabel = s.avg_score > 0 ? `${Math.round(s.avg_score * 100)}%` : 'N/A';
+                    
+                    tr.innerHTML = `
+                        <td style="padding: 15px; font-weight: 600; color: var(--text-dark);">${s.user_id}</td>
+                        <td style="padding: 15px; color: var(--text-muted); font-size: 13px;">${s.start_time.split('.')[0].replace('T', ' ')}</td>
+                        <td style="padding: 15px; color: var(--text-muted); font-size: 14px; text-transform: capitalize;">${s.subject.replace('_', ' ')}</td>
+                        <td style="padding: 15px; color: var(--accent-color); font-weight: 600; font-size: 13px; text-transform: uppercase;">${s.level}</td>
+                        <td style="padding: 15px;">
+                            <div class="neu-concave" style="display: inline-block; padding: 4px 12px; border-radius: 12px; font-weight: bold; font-family: var(--font-mono); font-size: 13px; color: ${badgeColor};">${scLabel}</div>
+                        </td>
+                        <td style="padding: 15px; color: var(--text-dark); font-weight: bold;">${s.turns_count}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+                
+                if (sessions.length > 0) {
+                    const avgT = Math.round(totT / sessions.length);
+                    document.getElementById('stat-turns').innerText = avgT;
+                }
+                if (validQ > 0) {
+                    const avgQ = Math.round((totQ / validQ) * 100);
+                    document.getElementById('stat-quality').innerText = `${avgQ}%`;
+                }
+                
+            } catch (err) {
+                console.error(err);
+                document.getElementById('table-body').innerHTML = '<tr><td colspan="6" style="text-align:center; padding: 30px; color: #fb7185;">Error al cargar el historial.</td></tr>';
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const sRes = await fetch('/api/settings');
+                if(sRes.ok) {
+                    const data = await sRes.json();
+                    if(data.theme) localStorage.setItem('pme_theme', data.theme);
+                    if(data.bg_theme) localStorage.setItem('pme_bg', data.bg_theme);
+                    const _the = localStorage.getItem('pme_theme') || 'purple';
+                    const _bg = localStorage.getItem('pme_bg') || 'default';
+                    document.body.className = `layout theme-${_the} bg-${_bg}`;
+                    window.activeColor = window.themeColors[_the] || '#9b84ee';
+                }
+            } catch(e) {}
+            loadDashboard();
+        });
+    </script>
+</body>
+</html>

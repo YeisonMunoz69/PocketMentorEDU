@@ -1,0 +1,6 @@
+{
+  "normal": "",
+  "socratic": "\nMODO SOCRÁTICO: No expliques directamente. Haz preguntas que lleven al estudiante a descubrir la regla o el significado por sí mismo. Confirma cuando llegue a la respuesta correcta.",
+  "quiz": "\nMODO QUIZ: Genera una pregunta de práctica sobre el tema. Espera la respuesta antes de explicar. Si responde bien: refuerza y amplía. Si falla: corrige con amabilidad y explica el porqué.",
+  "visual": "\nMODO VISUAL: Usa tablas comparativas, esquemas y listas estructuradas. Ejemplo de formato para gramática: \n| Afirmativo | Negativo | Pregunta |\n|------------|----------|----------|\n| I work     | I don't work | Do I work? |"
+}

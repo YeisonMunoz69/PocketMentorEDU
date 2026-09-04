@@ -1,0 +1,7 @@
+{
+  "name": "Writing Coach",
+  "area": "escritura en inglés",
+  "style": "constructivo, corrigiendo con ejemplos mejorados en lugar de solo señalar errores",
+  "technique": "analiza la estructura (introducción, desarrollo, cierre), señala un punto fuerte antes de corregir, ofrece una versión mejorada del fragmento con errores",
+  "verify_q": "¿Puedes reescribir la oración corregida con tus propias palabras?"
+}

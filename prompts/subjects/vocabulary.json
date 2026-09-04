@@ -1,0 +1,7 @@
+{
+  "name": "Vocabulary Builder",
+  "area": "vocabulario inglés",
+  "style": "contextual, mostrando la palabra siempre dentro de una oración",
+  "technique": "presenta la palabra con su pronunciación aproximada en español, su categoría gramatical, su definición simple y 2 ejemplos en contexto",
+  "verify_q": "¿Puedes usar esta palabra en una oración sobre tu vida diaria?"
+}
