@@ -302,7 +302,7 @@ body::before {
     padding: 0 12px 10px; font-family: var(--body) !important;
 }
 
-/* ── Barras de calidad ───────────────────────────────────────────────────── */
+/* ── Barras del indicador automático ────────────────────────────────────── */
 .q-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -387,13 +387,13 @@ def _quality_html(ev: Dict, rag_t: float, gen_t: float) -> str:
     ok = ev.get("pass", False)
     fb = ev.get("is_fallback", False)
     sc = "#81b29a" if ok else ("#c9a84c" if fb else "#e07a5f")
-    st = "VERIFIED" if ok else ("FALLBACK" if fb else "LOW")
+    st = "UMBRAL SUPERADO" if ok else ("RESPUESTA ALTERNATIVA" if fb else "BAJO UMBRAL")
     return (f'<div class="q-card">'
             f'<div class="q-header">'
-            f'<span class="q-title">Calidad</span>'
+            f'<span class="q-title">Indicador automático</span>'
             f'<span class="q-status" style="color:{sc};background:{sc}18;border:1px solid {sc}33">{st}</span>'
             f'</div>'
-            f'{_qbar("Confianza",  ov)}'
+            f'{_qbar("Puntaje compuesto",  ov)}'
             f'{_qbar("Fundament.", gr)}'
             f'{_qbar("Relevancia", re)}'
             f'<div class="q-chips">'
@@ -443,7 +443,7 @@ def _source_html(results: List[Dict]) -> str:
 
 EMPTY_Q = ('<div class="q-card" style="text-align:center;padding:24px 16px">'
            '<div style="font-family:var(--serif);font-size:22px;color:var(--text-3);'
-           'margin-bottom:6px;font-style:italic">Calidad</div>'
+           'margin-bottom:6px;font-style:italic">Indicador automático</div>'
            '<div style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;'
            'color:var(--text-3);text-transform:uppercase">Pendiente de consulta</div>'
            '</div>')
@@ -626,10 +626,10 @@ def launch_ui(llm, rag, evaluator, sess_dir: Path, prompt_dir: Path,
                         )
                         retry_chk = gr.Checkbox(
                             value=True,
-                            label="Reintento automático si score bajo",
+                            label="Reintento automático si el puntaje está bajo el umbral",
                         )
                         gr.HTML('<div style="height:8px"></div>')
-                        gr.HTML('<span class="sec-label">Calidad</span>')
+                        gr.HTML('<span class="sec-label">Indicador automático</span>')
                         quality_box = gr.HTML(value=EMPTY_Q)
 
                     # Columna central — chat

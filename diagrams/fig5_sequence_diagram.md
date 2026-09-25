@@ -176,7 +176,7 @@ sequenceDiagram
   end
 
   rect rgb(10, 30, 20)
-    Note over API,EVAL: ── FASE 7: EVALUACIÓN DE CALIDAD ──
+    Note over API,EVAL: ── FASE 7: INDICADORES AUTOMÁTICOS ──
     API   ->>  EVAL : evaluator.set_mode(eval_mode)
     API   ->>+ EVAL : evaluator.evaluate(msg, response,<br/>                    results, level)
     alt Modo FAST

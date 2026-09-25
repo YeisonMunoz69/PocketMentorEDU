@@ -1,0 +1,8 @@
+config_id,temperature,top_p,repeat_penalty,max_tokens,top_k_rag,eval_mode
+cfg_conservative,0.1,0.85,1.1,512,3,fast
+cfg_balanced,0.3,0.9,1.1,512,5,fast
+cfg_default,0.4,0.9,1.1,512,5,fast
+cfg_creative,0.7,0.95,1.05,512,7,fast
+cfg_high_recall,0.3,0.9,1.1,512,10,fast
+cfg_long_ans,0.3,0.9,1.1,800,5,fast
+cfg_eval_full,0.3,0.9,1.1,512,5,full

@@ -12,7 +12,7 @@ The platform is designed to operate on commodity hardware in disconnected enviro
 - **Hybrid Retrieval Pipeline**: Combines dense semantic search (`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`) with sparse lexical matching (`rank-bm25`), parent-document chunking, and reciprocal rank fusion (RRF).
 - **Neural Re-ranking**: Refines retrieved passages using a cross-encoder (`cross-encoder/ms-marco-MiniLM-L-6-v2`) prior to prompt synthesis.
 - **Pedagogical Scaffolding**: Applies structured prompt templates across English as a Second Language (ESL) subjects and Common European Framework of Reference (CEFR) proficiency tiers (A1–B2).
-- **Automated Response Evaluation**: Assesses generated responses locally for pedagogical compliance, groundedness, and latency.
+- **Automated Response Indicators**: Computes source-grounding, query-context relevance, output-length coherence, lexical overlap, and latency. These indicators do not measure pedagogical quality or learning.
 - **Web Interface**: Lightweight local dashboard and chat client served via FastAPI and vanilla web technologies.
 
 ---
@@ -103,7 +103,7 @@ The repository contains baseline assets to ensure immediate out-of-the-box opera
 
 ## Automated Benchmark and Reproducibility
 
-An automated benchmarking script is included to measure response latency, tokens per second, and groundedness metrics across experimental configurations:
+An automated benchmarking script is included to measure response latency, tokens per second, source-grounding, query-context relevance, output-length coherence, and lexical overlap across experimental configurations. These indicators describe adherence to the retrieved material and properties of the output; they are not measures of teaching effectiveness or student learning.
 
 ```bash
 python app/benchmark.py --quick
@@ -117,6 +117,12 @@ Command-line parameters:
 
 Results are exported to `logs/benchmarks/` in CSV, JSON, and tabular text formats.
 
+The curated evidence used in the LHXT 2026 article is available under
+`reproducibility/lhxt2026/`. That package contains numeric run data, response
+hashes, anonymized teacher ratings, verification scripts, and reproducible
+figures. It excludes session logs, system logs, scanned forms, full generated
+responses, and retrieved textbook passages.
+
 ---
 
 ## Repository Structure
@@ -128,7 +134,7 @@ PocketMentorEDU/
 │   ├── benchmark.py      # Automated benchmarking and metric collection
 │   ├── cache_models.py   # Embedding and cross-encoder pre-caching
 │   ├── crypto.py         # AES-256 local database encryption utilities
-│   ├── evaluator.py      # Automated response evaluation and metric scoring
+│   ├── evaluator.py      # Automated response indicator calculation
 │   ├── icons.py          # SVG and interface iconography
 │   ├── ingester.py       # Document ingestion and chunking pipeline
 │   ├── main.py           # Application entry point and orchestrator
@@ -143,6 +149,8 @@ PocketMentorEDU/
 │   ├── levels/           # CEFR proficiency profiles
 │   ├── modes/            # Interaction strategies
 │   └── subjects/         # Curated ESL subject instructions
+├── reproducibility/      # Public evidence and verification scripts
+│   └── lhxt2026/         # LHXT 2026 benchmark package
 ├── INICIAR.bat           # Windows runtime launcher
 ├── requirements.txt      # Python package dependencies
 └── README.md             # Project documentation
@@ -152,15 +160,16 @@ PocketMentorEDU/
 
 ## Offline Deployment Architecture
 
-To maintain deterministic offline execution:
+To support offline execution and controlled repetition:
 - Setting the environment variables `HF_HUB_OFFLINE=1` and `TRANSFORMERS_OFFLINE=1` isolates the runtime from external network calls.
 - Model weights, tokenizers, and embeddings are read directly from local relative paths.
 - Student interactions and generated embeddings remain strictly on the host system within `database/` and `sessions/`.
+- A fixed sampling seed can reproduce a run in the observed software and hardware environment, but reproducibility across different environments is not assumed.
 
 ---
 
 ## License and Attribution
 
-- The platform source code is provided under standard academic and educational usage terms.
+- No software license has yet been granted for the platform source code. Until a license is added, default copyright applies; contact the authors for reuse permissions.
 - Language models (e.g., Qwen, Phi) are subject to their respective upstream licensing agreements.
 - Included reference documentation in `knowledge/` is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).

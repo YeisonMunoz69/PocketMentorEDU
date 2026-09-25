@@ -1,9 +1,12 @@
 """
-evaluator.py — Auto-Evaluación con toggle ON/OFF
+evaluator.py — Indicadores automáticos de respuesta con toggle ON/OFF
 Modos:
   - OFF   : sin evaluación, score fijo 1.0, máxima velocidad
   - FAST  : Jaccard sobre tokens (sin embeddings, ~0ms)
-  - FULL  : similitud coseno con embeddings reales (preciso, ~200-500ms extra)
+  - FULL  : similitud coseno con embeddings (~200-500ms extra)
+
+Los puntajes describen apego al contexto recuperado y propiedades de la salida.
+No estiman calidad pedagógica ni aprendizaje.
 """
 
 import json
@@ -16,7 +19,7 @@ import numpy as np
 
 log = logging.getLogger("evaluator")
 
-QUALITY_THRESHOLD = 0.60
+SCORE_THRESHOLD = 0.60
 
 NO_INFO_PATTERNS = [
     "no tengo información", "no encontr", "no está en",
@@ -28,7 +31,7 @@ NO_INFO_PATTERNS = [
 # ── Modos de evaluación ───────────────────────────────────────────────────────
 EVAL_MODE_OFF  = "off"    # bypass total — máxima velocidad
 EVAL_MODE_FAST = "fast"   # Jaccard tokens — sin embeddings
-EVAL_MODE_FULL = "full"   # coseno embeddings — más preciso
+EVAL_MODE_FULL = "full"   # coseno con embeddings
 
 DEFAULT_MODE = EVAL_MODE_FAST
 
@@ -132,7 +135,7 @@ class ResponseEvaluator:
                    0.20 * level_score)
 
         result = {
-            "pass":            overall >= QUALITY_THRESHOLD,
+            "pass":            overall >= SCORE_THRESHOLD,
             "overall_score":   round(overall, 3),
             "grounding_score": round(grounding_score, 3),
             "relevance_score": round(relevance_score, 3),

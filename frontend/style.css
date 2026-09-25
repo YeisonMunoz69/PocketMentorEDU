@@ -420,7 +420,7 @@ button.neu-convex:disabled:active { transform: none; box-shadow: 6px 6px 12px va
 .src-item { font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); display: flex; gap: 8px; line-height: 1.4; word-break: break-all; }
 .src-item span { color: var(--accent-color); font-weight: bold; }
 
-/* Tarjeta de Métricas de Calidad */
+/* Tarjeta de indicadores automáticos */
 .q-card { padding: 20px; border-radius: 15px; margin-top: 15px; max-width: 380px; display: flex; flex-direction: column; gap: 15px; }
 .q-header { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 .q-status {

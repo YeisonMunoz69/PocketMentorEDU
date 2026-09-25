@@ -1,0 +1,67 @@
+{
+  "main": {
+    "Phi-4-mini": {
+      "correct_rejections": 4,
+      "detector_activations": 4,
+      "false_rejections": 0,
+      "n": 98,
+      "semantic_mean": 0.794929,
+      "semantic_vs_keyword_p": 0.390382,
+      "semantic_vs_keyword_spearman_rho": -0.273123,
+      "tokens_per_second_max": 4.51,
+      "tokens_per_second_mean": 1.819796,
+      "tokens_per_second_min": 0.05,
+      "tokens_per_second_sd": 0.832807
+    },
+    "Qwen2.5-3B": {
+      "correct_rejections": 12,
+      "detector_activations": 18,
+      "false_rejections": 6,
+      "n": 98,
+      "semantic_mean": 0.794857,
+      "semantic_vs_keyword_p": 0.839107,
+      "semantic_vs_keyword_spearman_rho": -0.065757,
+      "tokens_per_second_max": 5.99,
+      "tokens_per_second_mean": 1.955,
+      "tokens_per_second_min": 0.2,
+      "tokens_per_second_sd": 1.37302
+    }
+  },
+  "seeds": {
+    "content_mean_phi": 0.803042,
+    "content_mean_qwen": 0.800958,
+    "mean_absolute_between_model_difference": 0.025333,
+    "mean_within_model_sd": 0.037056,
+    "paired_difference_ci95": [
+      -0.022165,
+      0.026332
+    ],
+    "paired_mean_difference": 0.002083,
+    "seed_42_control_exact": {
+      "Phi-4-mini": true,
+      "Qwen2.5-3B": true
+    },
+    "wilcoxon_p": 0.569336,
+    "wilcoxon_w": 31.0
+  },
+  "teachers": {
+    "agreement": {
+      "rating_spearman_p": 0.140465,
+      "rating_spearman_rho": -0.500703,
+      "use_decision_agreements": 4,
+      "use_decision_kappa": -0.428571
+    },
+    "teacher_1": {
+      "automatic_score_spearman_p": 0.706468,
+      "automatic_score_spearman_rho": 0.136713,
+      "mean_rating": 3.333333,
+      "use_without_changes": 3
+    },
+    "teacher_2": {
+      "automatic_score_spearman_p": 0.469399,
+      "automatic_score_spearman_rho": 0.259304,
+      "mean_rating": 1.933333,
+      "use_without_changes": 3
+    }
+  }
+}

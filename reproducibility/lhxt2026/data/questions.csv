@@ -1,0 +1,15 @@
+question_id,area,level,question_es,expected_keywords,source_page,expect_fallback
+G1,grammar,basic,¿Cuándo se usa 'a' y cuándo 'an' en inglés? ¿Qué son los count nouns?,vowel | consonant | count | noncount | article | indefinite,191-197,false
+G2,grammar,intermediate,¿Cuál es la diferencia entre el simple present y el present progressive en inglés?,habit | routine | now | happening | currently | action,214-220,false
+G3,grammar,advanced,¿Qué es el present perfect y cómo se diferencia del simple past?,have | has | past participle | experience | recently | already,220-227,false
+G4,grammar,intermediate,"¿Para qué sirven los modal auxiliaries en inglés? Da ejemplos de 'can', 'should' y 'must'.",modal | auxiliary | ability | possibility | obligation | main verb,228-235,false
+V1,vocabulary,intermediate,¿Cuál es la diferencia entre 'affect' y 'effect' en inglés?,affect | effect | verb | noun | confused | usage,139-150,false
+V2,vocabulary,intermediate,¿Qué son los conjunctive adverbs y cómo se usan para conectar ideas en inglés?,however | therefore | furthermore | semicolon | transition | connect,36-42,false
+V3,vocabulary,advanced,¿Qué es el parallelism en inglés y por qué es importante en la escritura?,parallel | balanced | structure | series | consistent | grammar,61-67,false
+W1,writing,basic,¿Cómo se estructura un párrafo en inglés? ¿Qué es el topic sentence?,topic sentence | body | conclusion | main idea | paragraph | support,68-75,false
+W2,writing,intermediate,¿Qué es una thesis statement y qué características debe tener?,thesis | arguable | specific | claim | essay | focus,97-108,false
+W3,writing,advanced,¿Cuál es la diferencia entre revising y editing al escribir un ensayo en inglés?,revising | editing | content | structure | grammar | draft,120-138,false
+R1,reading,basic,¿Cuáles son los componentes básicos de una oración (sentence) en inglés?,subject | verb | object | complete | sentence | predicate,15-19,false
+R2,reading,intermediate,¿Qué es un sentence fragment y cómo se puede corregir?,fragment | incomplete | subject | verb | dependent | clause,49-60,false
+F1,general_english,intermediate,¿Quién ganó el último campeonato mundial de fútbol?,,N/A,true
+F2,grammar,basic,¿Cómo programo una aplicación en Python usando inteligencia artificial?,,N/A,true

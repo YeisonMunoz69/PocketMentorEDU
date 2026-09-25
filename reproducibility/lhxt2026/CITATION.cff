@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Si utiliza este paquete, cite el artículo y el repositorio."
+title: "PocketMentorEDU: paquete de reproducibilidad LHXT 2026"
+type: software
+version: 1.0.0
+date-released: 2026-09-24
+repository-code: "https://github.com/YeisonMunoz69/PocketMentorEDU"
+authors:
+  - family-names: "Hoyos Cerón"
+    given-names: "Fabián Armando"
+    orcid: "https://orcid.org/0009-0007-3338-787X"
+  - family-names: "Muñoz Gómez"
+    given-names: "Yeison Javier"
+    orcid: "https://orcid.org/0009-0007-5178-0667"
+  - family-names: "Caiza Narváez"
+    given-names: "Juan José"
+    orcid: "https://orcid.org/0000-0002-8582-5946"
+preferred-citation:
+  type: article
+  title: "Evaluación de modelos compactos para tutoría de inglés sin conexión: estabilidad y límites de un benchmark RAG"
+  authors:
+    - family-names: "Hoyos Cerón"
+      given-names: "Fabián Armando"
+    - family-names: "Muñoz Gómez"
+      given-names: "Yeison Javier"
+    - family-names: "Caiza Narváez"
+      given-names: "Juan José"
+  year: 2026

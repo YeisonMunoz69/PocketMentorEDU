@@ -293,7 +293,7 @@ class BenchmarkRunner:
             "response_preview":response[:300].replace("\n", " "),
             "chunks_retrieved":len(results),
             "timestamp":       datetime.now().isoformat(),
-            # ── Trazabilidad para auditoria del evaluador (LHXT 2026) ─────────
+            # ── Campos adicionales para la trazabilidad experimental ──────────
             "level_score":     ev.get("level_score"),
             "response_full":   response,
             "prompt_chars":    len(prompt),

@@ -45,7 +45,7 @@ Instala la extensión **"Markdown Preview Mermaid Support"** para previsualizar 
 | ③ Ingesta | `ingester.py` | Extracción multi-formato, chunking Parent/Child, embeddings batch |
 | ④ Motor RAG | `rag.py` | Vector coseno + BM25 + RRF + Parent-Doc Retrieval + CrossEncoder |
 | ⑤ LLM + Prompts | `prompt_builder.py` | 7 áreas ESL × 3 niveles CEFR × 4 modos pedagógicos + inferencia |
-| ⑥ Memoria/Eval | `memory.py` + `evaluator.py` | Ventana deslizante, compresión LLM, scoring Jaccard/coseno |
+| ⑥ Memoria/Indicadores | `memory.py` + `evaluator.py` | Ventana deslizante, compresión LLM e indicadores Jaccard/coseno |
 | ⑦ API | `api.py` + `uvicorn` | REST endpoints + SSE streaming asíncrono |
 | ⑧ Frontend | `frontend/*.html/js/css` | UI neumórfica, offline 100%, sin frameworks externos |
 

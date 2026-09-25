@@ -80,7 +80,7 @@
                     <span style="font-size: 36px; font-weight: 700; color: var(--accent-color); font-family: var(--font-mono);" id="stat-sessions">0</span>
                 </div>
                 <div class="stats-card neu-convex" style="align-items: center; text-align: center;">
-                    <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Tutor Quality Avg</span>
+                    <span style="font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Promedio del indicador</span>
                     <span style="font-size: 36px; font-weight: 700; color: #34d399; font-family: var(--font-mono);" id="stat-quality">0%</span>
                 </div>
                 <div class="stats-card neu-convex" style="align-items: center; text-align: center;">
@@ -108,7 +108,7 @@
                                 <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Fecha</th>
                                 <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Tema</th>
                                 <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Nivel</th>
-                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">IA Quality</th>
+                                <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Puntaje</th>
                                 <th style="padding: 12px 15px; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase;">Turnos</th>
                             </tr>
                         </thead>
@@ -159,7 +159,7 @@
                     const tr = document.createElement('tr');
                     tr.style.borderBottom = '1px dashed var(--shadow-dark)';
                     
-                    // Simple Quality visual badge
+                    // Indicador visual del puntaje compuesto
                     let badgeColor = "var(--text-muted)";
                     if (s.avg_score > 0.6) badgeColor = "#34d399";
                     else if (s.avg_score > 0.3) badgeColor = "#fbbf24";

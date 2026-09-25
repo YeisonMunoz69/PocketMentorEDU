@@ -131,7 +131,7 @@ flowchart TD
   end
 
   %% ── FASE 8: EVALUACIÓN ───────────────────────────────────────────────
-  subgraph F8["FASE 8 — EVALUACIÓN DE CALIDAD  ·  evaluator.py"]
+  subgraph F8["FASE 8 — INDICADORES AUTOMÁTICOS  ·  evaluator.py"]
     direction TB
     EV1{"eval_mode?"}
     EV2["Modo FAST\n─────────────────────\nJaccard(query, ctx)\nJaccard(response, ctx)\nVelocidad: ~0 ms"]

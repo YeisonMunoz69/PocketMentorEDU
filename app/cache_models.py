@@ -47,7 +47,7 @@ try:
     print(f"        OK — score de prueba: {test_score}")
 except Exception as e:
     print(f"  [AVISO] No se pudo descargar el re-ranker: {e}")
-    print(f"          El sistema funcionará sin re-ranking (calidad reducida).")
+    print(f"          El sistema funcionará sin reordenamiento neural de fragmentos.")
 
 print()
 print("  Modelos cacheados correctamente en la USB.")

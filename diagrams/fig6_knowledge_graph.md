@@ -45,7 +45,7 @@ graph LR
   %% ── RESPUESTA ────────────────────────────────────────────────────────
   subgraph RESPONSE["RESPUESTA PEDAGÓGICA"]
     RESP["🤖 Respuesta del Tutor\n──────────────────────\ntexto: str\nidioma_respuesta: es\nidioma_ejemplos: en\nfuentes_citadas: list\npregunta_verificacion: str"]
-    METRICS["📊 Métricas de Calidad\n──────────────────────\noverall_score: float (0–1)\ngrounding_score: float × 0.40\nrelevance_score: float × 0.40\nlevel_score: float × 0.20\npass: bool (umbral ≥ 0.60)\neval_mode: off|fast|full\nrag_time_ms: float\ngen_time_ms: float"]
+    METRICS["📊 Indicadores Automáticos\n──────────────────────\noverall_score: float (0–1)\ngrounding_score: float × 0.40\nrelevance_score: float × 0.40\nlevel_score: float × 0.20\npass: bool (umbral ≥ 0.60)\neval_mode: off|fast|full\nrag_time_ms: float\ngen_time_ms: float"]
   end
 
   %% ── PROMPT PEDAGÓGICO ────────────────────────────────────────────────
@@ -181,7 +181,7 @@ graph LR
 | `Vector Embedding` | Nodo semántico | 1:1 con Child Chunk | Representación 384-dim |
 | `Modelo GGUF` | Nodo LLM | 1 activo | Generador de respuestas |
 | `Prompt Pedagógico` | Nodo dinámico | 1 por turno | Instrucción ensamblada en tiempo real |
-| `Métricas de Calidad` | Nodo evaluación | 1 por respuesta | Puntuación automática |
+| `Indicadores Automáticos` | Nodo evaluación | 1 por respuesta | Puntuación automática |
 
 ## Relaciones Semánticas Clave
 

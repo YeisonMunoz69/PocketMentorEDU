@@ -121,7 +121,7 @@ flowchart TB
   %% =====================================================================
   %% CAPA 6 — MEMORIA & EVALUACIÓN
   %% =====================================================================
-  subgraph L6["⑥  CAPA DE MEMORIA Y EVALUACIÓN DE CALIDAD"]
+  subgraph L6["⑥  CAPA DE MEMORIA E INDICADORES AUTOMÁTICOS"]
     direction LR
     subgraph MEM["SessionMemory  ·  memory.py"]
       direction TB
@@ -223,6 +223,6 @@ flowchart TB
 | ③ | Ingesta | `ingester.py` | Extracción, chunking y embedding de documentos |
 | ④ | Motor RAG | `rag.py` | Recuperación híbrida + re-ranking de contexto |
 | ⑤ | LLM + Prompts | `prompt_builder.py` | Construcción del prompt y generación de respuesta |
-| ⑥ | Memoria/Eval | `memory.py` + `evaluator.py` | Historial de sesión + métricas de calidad |
+| ⑥ | Memoria/Indicadores | `memory.py` + `evaluator.py` | Historial de sesión + indicadores automáticos de respuesta |
 | ⑦ | API | `api.py` + Uvicorn | Servidor REST + SSE streaming |
 | ⑧ | Frontend | `frontend/*.html/js/css` | Interfaz neumórfica offline |
